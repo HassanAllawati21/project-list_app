@@ -6,46 +6,69 @@ body {
     color: #ffffff; /* White text */
   }
   
-  .app {
-    display: flex;
+  .app-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Adjust column ratios as needed */
+    gap: 20px;
+    padding: 20px;
   }
   
   /* Left Sidebar Styles */
   .left-sidebar {
-    width: 200px;
+    width: 250px;
     padding: 20px;
-    background-color: #333; /* Dark gray */
-  }
-  
-  .left-sidebar form {
-    margin-bottom: 20px;
-  }
-  
-  .left-sidebar label {
-    margin-bottom: 5px;
+    background-color: #464646; /* Greyer background color */
     color: #ffffff;
+    border: 2px solid #394240; /* Distinct border color */
+    border-radius: 10px; /* Rounded corners */
   }
   
-  .left-sidebar input {
-    padding: 8px;
-  }
-  
-  .left-sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .left-sidebar li {
+  .left-sidebar button.add-user-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffd700; /* Yellow for the "Add New User" button */
+    color: #333; /* Dark text color for the button */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
     cursor: pointer;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
   }
   
-  .left-sidebar button {
-    margin-left: 5px;
+  /* Form styles */
+  .form-container {
+    display: none;
+    background-color: #333; /* Grey background for the form */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
   }
   
+  .form-container label {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dcdcdc; /* Light grey border for textboxes */
+    border-radius: 5px; /* Rounded corners for textboxes */
+  }
+  
+  .form-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffd700; /* Yellow for form buttons */
+    color: #333; /* Dark text color for form buttons */
+    border: none;
+    border-radius: 30px; /* Rounded corners for form buttons */
+    margin-bottom: 8px;
+  }
+  
+  .form-container button.cancel-btn {
+    background-color: #808080; /* Grey color for the Cancel button */
+  }
+   
   /* Middle Content Styles */
   .middle-content {
     flex: 1;

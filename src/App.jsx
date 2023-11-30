@@ -8,20 +8,7 @@ const App = () => {
   const [selectedUser, setSelectedUser] = useState('');
 
   // Define the projects array
-  const projects = [
-    // Sample project data
-    {
-      title: 'Project 1',
-      description: 'Description for Project 1',
-      dueDate: '2023-12-01',
-    },
-    {
-      title: 'Project 2',
-      description: 'Description for Project 2',
-      dueDate: '2023-12-15',
-    },
-    // Add more projects as needed
-  ];
+  const projects = [];
 
   return (
     <div className="app-container">

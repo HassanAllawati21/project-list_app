@@ -1,45 +1,56 @@
 import React, { useState } from 'react';
+import UserForm from './UserForm';
 
 const LeftSidebar = ({ setSelectedUser }) => {
-  const [registeredNames, setRegisteredNames] = useState([]); 
-  const [newName, setNewName] = useState('');
+  const [isFormVisible, setFormVisible] = useState(false);
+  const [users, setUsers] = useState([]); // Add state for users
 
-  const handleInputChange = (e) => {
-    setNewName(e.target.value);
+  const handleAddUserClick = () => {
+    setFormVisible(true);
   };
 
-  const handleAddName = () => {
-    if (newName.trim() !== '') {
-      setRegisteredNames([...registeredNames, newName.trim()]);
-      setNewName('');
-    }
+  const handleCloseForm = () => {
+    setFormVisible(false);
   };
 
-  const handleDeleteName = (name) => {
-    const updatedNames = registeredNames.filter((n) => n !== name);
-    setRegisteredNames(updatedNames);
+  const handleFormSubmit = () => {
+    // Handle form submission logic here
+    // You can save the user data or perform other actions
+
+    // For simplicity, let's just close the form
+    setFormVisible(false);
+
+    // Example: Add the new user to the list
+    const newUserName = formData.name;
+    setUsers(prevUsers => [...prevUsers, newUserName]);
+  };
+
+  const handleSaveAndAddAnother = () => {
+    // Handle saving current user and showing a new empty form
+    // For simplicity, let's just close the form
+    setFormVisible(false);
   };
 
   return (
     <div className="left-sidebar">
-      {/* ... existing content ... */}
-      
-      {/* Add New Name Form */}
-      <form>
-        <label>Add New Name:</label>
-        <input type="text" value={newName} onChange={handleInputChange} />
-        <button type="button" onClick={handleAddName}>+</button>
-      </form>
+      <button className="add-user-btn" onClick={handleAddUserClick}>
+        Add New User
+      </button>
 
-      {/* Display Registered Names */}
+      {/* List of users */}
       <ul>
-        {registeredNames.map((name, index) => (
-          <li key={index} onClick={() => setSelectedUser(name)}>
-            {name}
-            <button type="button" onClick={() => handleDeleteName(name)}>Delete</button>
-          </li>
+        {users.map((user, index) => (
+          <li key={index}>{user}</li>
         ))}
       </ul>
+
+      {/* Form Container */}
+      <UserForm
+        isVisible={isFormVisible}
+        onClose={handleCloseForm}
+        onSave={handleFormSubmit}
+        onSaveAndAddAnother={handleSaveAndAddAnother}
+      />
     </div>
   );
 };
