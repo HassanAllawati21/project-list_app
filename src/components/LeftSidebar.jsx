@@ -7,6 +7,11 @@ const LeftSidebar = ({ setSelectedUser }) => {
   const [users, setUsers] = useState([]); // Add state for users
   const [isPopUpVisible, setPopUpVisible] = useState(false);
   const [popUpIndex, setPopUpIndex] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    employeeID: '',
+    email: '',
+  });
 
 
   const handleAddUserClick = () => {
@@ -20,6 +25,7 @@ const LeftSidebar = ({ setSelectedUser }) => {
   const handleFormSubmit = (userData) => {
     setUsers((prevUsers) => [...prevUsers, userData]);
     setFormVisible(false);
+    setPopUpVisible(false);
   };
 
   const handleSaveAndAddAnother = (userData) => {
@@ -42,12 +48,17 @@ const LeftSidebar = ({ setSelectedUser }) => {
   };
 
   const handleProjectsClick = (index) => {
-    // Handle opening a projects view for the selected user
-    console.log(`View projects for ${users[index].name}`);
+    const selectedUser = users[index];
+    setSelectedUser(selectedUser);
   };
 
   return (
     <div className="left-sidebar">
+      <div className="logo-container">
+        <img src="src\components\assets\lb_logo.png" alt="Logo" className="logo" />
+        <h1 className="title">IRA Project Tracker</h1>
+      </div>
+
       <button className="add-user-btn" onClick={handleAddUserClick}>
         Add New User
       </button>
@@ -60,7 +71,7 @@ const LeftSidebar = ({ setSelectedUser }) => {
               {user.name}
               {isPopUpVisible && popUpIndex === index && (
                 <div className="popup">
-                  <button onClick={() => handleProjectsClick(index)}>Projects</button>
+                  <button onClick={() => handleProjectsClick(index)}>View Projects</button>
                   <button onClick={() => handleDeleteUser(index)}>Delete</button>
                 </div>
               )}

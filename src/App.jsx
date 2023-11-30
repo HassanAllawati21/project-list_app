@@ -6,14 +6,12 @@ import "./styles.css"
 
 const App = () => {
   const [selectedUser, setSelectedUser] = useState('');
-
-  // Define the projects array
-  const projects = [];
+  const [projects, setProjects] = useState([]); // State for projects
 
   return (
     <div className="app-container">
       {/* Left Sidebar */}
-      <LeftSidebar setSelectedUser={setSelectedUser} />
+      <LeftSidebar setSelectedUser={setSelectedUser} setProjects={setProjects} />
 
       {/* Middle Content */}
       <MiddleContent selectedUser={selectedUser} />

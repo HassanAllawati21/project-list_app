@@ -1,19 +1,7 @@
 import React, { useState } from 'react';
 
 const MiddleContent = ({ selectedUser }) => {
-  const [projects, setProjects] = useState([
-    {
-      title: 'Project 1',
-      description: 'Description for Project 1',
-      dueDate: '2023-12-01',
-    },
-    {
-      title: 'Project 2',
-      description: 'Description for Project 2',
-      dueDate: '2023-12-15',
-    },
-    // Add more projects as needed
-  ]);
+  const [projects, setProjects] = useState([]);
 
   const [newProject, setNewProject] = useState({
     title: '',
@@ -37,7 +25,7 @@ const MiddleContent = ({ selectedUser }) => {
 
   return (
     <div className="middle-content">
-      <h2>{`${selectedUser}'s Projects`}</h2>
+      <h2>{`${selectedUser?.name}'s Projects`}</h2>
       
       {/* Add New Project Form */}
       <form>
