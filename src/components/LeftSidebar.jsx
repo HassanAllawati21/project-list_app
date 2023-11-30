@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import UserForm from './UserForm';
+import UserPopUp from './UserPopUp';
 
 const LeftSidebar = ({ setSelectedUser }) => {
   const [isFormVisible, setFormVisible] = useState(false);
   const [users, setUsers] = useState([]); // Add state for users
+  const [isPopUpVisible, setPopUpVisible] = useState(false);
+  const [popUpIndex, setPopUpIndex] = useState(null);
+
 
   const handleAddUserClick = () => {
     setFormVisible(true);
@@ -27,6 +31,21 @@ const LeftSidebar = ({ setSelectedUser }) => {
     setUsers((prevUsers) => prevUsers.filter((_, i) => i !== index));
   };
 
+  const handleMouseEnter = (index) => {
+    setPopUpVisible(true);
+    setPopUpIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setPopUpVisible(false);
+    setPopUpIndex(null);
+  };
+
+  const handleProjectsClick = (index) => {
+    // Handle opening a projects view for the selected user
+    console.log(`View projects for ${users[index].name}`);
+  };
+
   return (
     <div className="left-sidebar">
       <button className="add-user-btn" onClick={handleAddUserClick}>
@@ -37,8 +56,15 @@ const LeftSidebar = ({ setSelectedUser }) => {
       <ul>
         {users.map((user, index) => (
           <li key={index}>
-            {user.name} {/* Display the name property of the user object */}
-            <button onClick={() => handleDeleteUser(index)}>Delete</button>
+            <div className="user-name" onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave}>
+              {user.name}
+              {isPopUpVisible && popUpIndex === index && (
+                <div className="popup">
+                  <button onClick={() => handleProjectsClick(index)}>Projects</button>
+                  <button onClick={() => handleDeleteUser(index)}>Delete</button>
+                </div>
+              )}
+            </div>
           </li>
         ))}
       </ul>
