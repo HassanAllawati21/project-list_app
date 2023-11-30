@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a; /* Dark background */
+    color: #ffffff; /* White text */
+  }
+  
+  .app {
+    display: flex;
+  }
+  
+  /* Left Sidebar Styles */
+  .left-sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: #333; /* Dark gray */
+  }
+  
+  .left-sidebar form {
+    margin-bottom: 20px;
+  }
+  
+  .left-sidebar label {
+    margin-bottom: 5px;
+    color: #ffffff;
+  }
+  
+  .left-sidebar input {
+    padding: 8px;
+  }
+  
+  .left-sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .left-sidebar li {
+    cursor: pointer;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .left-sidebar button {
+    margin-left: 5px;
+  }
+  
+  /* Middle Content Styles */
+  .middle-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .project-box {
+    border: 1px solid #1a1a1a;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #282c35;
+    color: white;
+  }
+  
+  /* Right Sidebar Styles */
+  .right-sidebar {
+    padding: 20px;
+  }
+  
+  .right-sidebar div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .days-of-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+  }
+  
+  .calendar-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+  
+  .due-date {
+    background-color: #ffd700; /* Yellow for due dates */
+  }
