@@ -32,42 +32,61 @@ body {
     border-radius: 5px; /* Rounded corners */
     cursor: pointer;
   }
+  ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 8px; /* Adjust spacing between list items */
+    display: flex; /* Optional: Use flexbox for layout */
+    justify-content: space-between; /* Add space between user name and delete button */
+    align-items: center; /* Optional: Center items vertically in each list item */
+  }
+  
+  li button {
+    margin-left: 8px; /* Remove this line to allow space between user name and delete button */
+  }
   
   /* Form styles */
   .form-container {
-    display: none;
-    background-color: #333; /* Grey background for the form */
+    display: none; /* Initially hide the form */
+    background-color: #fff; /* White background */
     padding: 20px;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
   }
   
-  .form-container label {
-    color: #ffffff;
+  .form-container.visible {
+    display: block; /* Show the form when the "visible" class is present */
+  }
+  
+  label {
     display: block;
     margin-bottom: 8px;
   }
   
-  .form-container input {
+  input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #dcdcdc; /* Light grey border for textboxes */
-    border-radius: 5px; /* Rounded corners for textboxes */
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
   
-  .form-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #ffd700; /* Yellow for form buttons */
-    color: #333; /* Dark text color for form buttons */
+  button {
+    padding: 8px 16px;
+    margin-right: 8px;
     border: none;
-    border-radius: 30px; /* Rounded corners for form buttons */
-    margin-bottom: 8px;
+    border-radius: 4px;
+    cursor: pointer;
   }
   
-  .form-container button.cancel-btn {
-    background-color: #808080; /* Grey color for the Cancel button */
+  .cancel-btn {
+    background-color: #e74c3c; /* Red background for cancel button */
+    color: #fff; /* White text */
   }
+  
    
   /* Middle Content Styles */
   .middle-content {
@@ -114,7 +133,7 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: #444444;
   }
   
   .due-date {

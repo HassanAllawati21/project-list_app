@@ -13,22 +13,18 @@ const LeftSidebar = ({ setSelectedUser }) => {
     setFormVisible(false);
   };
 
-  const handleFormSubmit = () => {
-    // Handle form submission logic here
-    // You can save the user data or perform other actions
-
-    // For simplicity, let's just close the form
+  const handleFormSubmit = (userData) => {
+    setUsers((prevUsers) => [...prevUsers, userData]);
     setFormVisible(false);
-
-    // Example: Add the new user to the list
-    const newUserName = formData.name;
-    setUsers(prevUsers => [...prevUsers, newUserName]);
   };
 
-  const handleSaveAndAddAnother = () => {
-    // Handle saving current user and showing a new empty form
-    // For simplicity, let's just close the form
-    setFormVisible(false);
+  const handleSaveAndAddAnother = (userData) => {
+    setUsers((prevUsers) => [...prevUsers, userData]);
+    setFormVisible(true);
+  };
+
+  const handleDeleteUser = (index) => {
+    setUsers((prevUsers) => prevUsers.filter((_, i) => i !== index));
   };
 
   return (
@@ -40,7 +36,10 @@ const LeftSidebar = ({ setSelectedUser }) => {
       {/* List of users */}
       <ul>
         {users.map((user, index) => (
-          <li key={index}>{user}</li>
+          <li key={index}>
+            {user.name} {/* Display the name property of the user object */}
+            <button onClick={() => handleDeleteUser(index)}>Delete</button>
+          </li>
         ))}
       </ul>
 
