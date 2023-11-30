@@ -143,38 +143,45 @@ body {
   
   /* Right Sidebar Styles */
   .right-sidebar {
-    padding: 20px;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 10px; /* Adjust the gap between rows and columns */
+  
+    /* Add other styles for the right sidebar container */
   }
   
-  .right-sidebar div {
-    display: flex;
+  .calendar-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  
+    /* Add your styles for the calendar header */
   }
   
-  .calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+  .day-of-week {
+    /* Add your styles for the day of the week */
   }
   
-  .days-of-week {
+  .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    font-weight: bold;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px; /* Adjust the gap between days */
+  
+    /* Add your styles for the calendar grid */
   }
   
   .calendar-day {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #444444;
+    height: 40px; /* Set a fixed height for the days */
+    border: 1px solid #ccc; /* Add a border for each day */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Add a pointer cursor */
   }
   
-  .due-date {
-    background-color: #ffd700; /* Yellow for due dates */
+  .highlighted {
+    background-color: yellow; /* Customize the highlighted background color */
+    /* Add any other styles for highlighted days */
   }
