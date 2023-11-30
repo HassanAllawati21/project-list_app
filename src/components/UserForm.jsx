@@ -51,9 +51,13 @@ const UserForm = ({ isVisible, onClose, onSave, onSaveAndAddAnother }) => {
         value={formData.email}
         onChange={handleInputChange}
       />
-
-      <button onClick={handleSave}>Save</button>
-      <button onClick={handleSaveAndAddAnother}>Save & Add Another</button>
+      <div className="button-container">
+        <button onClick={handleSave}>Save</button>
+        <button className="save-and-add" onClick={handleSaveAndAddAnother}>
+          Save & Add Another
+        </button>
+        </div>
+      
       <button className="cancel-btn" onClick={onClose}>
         Cancel
       </button>

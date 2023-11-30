@@ -70,7 +70,7 @@ body {
   /* Form styles */
   .form-container {
     display: none; /* Initially hide the form */
-    background-color: #fff; /* White background */
+    background-color: #121212;; /* White background */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
@@ -88,22 +88,33 @@ body {
   input {
     width: 90%;
     padding: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     border: 1px solid #000000;
     border-radius: 4px;
   }
   
   button {
-    padding: 8px 16px;
-    margin-right: 8px;
+    padding: 6px 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    background-color: #ffd700;
+    margin-bottom: 6px;
+    height: 40px;
   }
+
   
+  .button-container {
+    display: flex;
+    gap: 16px; /* Adjust the gap between buttons as needed */
+    width: 97%;
+    margin-bottom: 8px;
+  }
+
   .cancel-btn {
-    background-color: #e74c3c; /* Red background for cancel button */
+    background-color: #470000; /* Red background for cancel button */
     color: #fff; /* White text */
+    width: 98%;
   }
 
   .popup {
